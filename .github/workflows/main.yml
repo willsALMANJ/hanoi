@@ -1,0 +1,25 @@
+name: test
+
+on:
+  workflow_dispatch:
+  push:
+  schedule:
+    - cron: "0 2 * * 0"
+
+# Checks out HEAD from upstream/repo
+# Pushes to fork/repo
+# Opens PR against upstream
+# Requires a secret in the repo containing this repo named PAT with access to fork
+
+jobs:
+  test:
+    runs-on: ubuntu-latest
+
+    steps:
+    - uses: actions/checkout@v2
+    - name: Set up Python
+      uses: actions/setup-python@v2
+      with:
+        python-version: 'x'
+    - name: Run test
+      run: python solution.py 4
