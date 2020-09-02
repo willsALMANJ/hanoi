@@ -1,24 +1,14 @@
 "Implementation of Towers class for Towers of Hanoi problem"
 
-from typing import NamedTuple
-
-
-class MoveRing(NamedTuple):
-    "Move a single ring"
-    ring: int
-    start: str
-    end: str
-
-
-class MoveStack(NamedTuple):
-    "Move a stack of rings"
-    bottom: int
-    start: str
-    end: str
-
 
 class Towers:
-    "Towers of Hanoi implementation"
+    """Towers of Hanoi implementation
+
+    On instantiation, a new Towers instance is ready to be played. The `move()`
+    method can be used to move rings between columns. As long as the `move()`
+    method is the only way that the Towers instance is modified, any method of
+    reaching a solution is valid, as `move()` does not allow invalid moves.
+    """
 
     def __init__(self, size):
         self.size = size
